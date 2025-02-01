@@ -1,15 +1,15 @@
 class Cat {
-    constructor(name){
-        this.name = name;
-    }
+  constructor(name) {
+    this.name = name;
+  }
 
-    meow(){
-        // this keyword refers to the object that is calling the method
-        console.log('meow', 'name', this.name);
-    }
+  meow() {
+    // this keyword refers to the object that is calling the method
+    console.log("meow", "name", this.name);
+  }
 }
 
-const cat = new Cat('Tom');
+const cat = new Cat("Tom");
 cat.meow();
 
 const assignFunc = cat.meow;
@@ -19,21 +19,19 @@ const assignFunc = cat.meow;
 
 assignFunc.call(cat.meow);
 
-
 // Object example
 
 const obj = {
-    name: 'John',
-    age: 20,
-    getAge(){
-        return this.age;
-    }
-}
+  name: "John",
+  age: 20,
+  getAge: function () {
+    return `My age is ${this.age}`;
+  },
+};
 
 const secondObj = {
-    name: 'Jane',
-    age: 30
-}
+  name: "Jane",
+  age: 30,
+};
 
 console.log(obj.getAge.call(secondObj));
-

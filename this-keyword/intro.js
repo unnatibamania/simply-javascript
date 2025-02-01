@@ -1,35 +1,34 @@
 const person = {
-    name: 'John',
-    age: 20,
-    getAge(){
-        return this.age;
-    }
-}
+  name: "John",
+  age: 20,
+  getAge() {
+    return this.age;
+  },
+};
 
-const p = person.getAge;
-console.log(p());
+const p = person.getAge();
+console.log(typeof p);
+console.log(p);
 console.log(person.getAge());
 
+// function wtf() {
+//   console.log("in wtf", this);
+// }
 
+// wtf();
 
-function wtf(){
-    console.log('in wtf', this);
-}
+// const obj = {
+//   name: "John",
+//   age: 20,
+//   wtf: wtf,
+//   func: () => {
+//     console.log("in func", this);
+//   },
+// };
 
-wtf();
+// const callFunc = obj.func;
 
-const obj = {
-    name: 'John',
-    age: 20,
-    wtf: wtf,
-    func: ()=>{
-        console.log('in func', this);
-    }
-}
+// callFunc();
 
-const callFunc = obj.func;
-
-callFunc();
-
-obj.wtf();
-obj.func();
+// obj.wtf();
+// obj.func();

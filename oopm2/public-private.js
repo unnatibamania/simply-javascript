@@ -1,43 +1,44 @@
 class User {
-     
-    // private h ye
-    #uniqueId;
+  // private h ye
+  #uniqueId;
 
-    // this indicates that user cannot access this outside class
-    _rollno;
+  // this indicates that user cannot access this outside class
+  _rollno;
 
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.#uniqueId = Math.random();
+  }
 
-    constructor(name, age){
-        this.name = name;
-        this.age = age;
-        this.#uniqueId = Math.random();
-    }
+  get uniqueId() {
+    return this.#uniqueId;
+  }
 
-    get uniqueId(){
-        return this.#uniqueId;
-    }
+  get name() {
+    return this._name;
+  }
 
-    get name(){
-        return this._name;
-    }
+  // private method
+  #privateMethod() {
+    return `My unique id is ${this.#uniqueId}`;
+  }
 
+  #setUniqueId() {
+    this.#uniqueId = Math.random();
+  }
 
-    // private method
-    #privateMethod(){
-        return this.#uniqueId;
-    }
+  set name(value) {
+    this._name = value;
+  }
 
-    set name(value){
-        this._name = value;
-    }
-
-
-    callPrivateMethod(){
-        return this.#privateMethod();
-    }
+  callPrivateMethod() {
+    this.#setUniqueId();
+    return this.#privateMethod();
+  }
 }
 
-const user = new User('John', 20);
+const user = new User("John", 20);
 console.log(user.name);
 // you can't access private property
 console.log(user.uniqueId);
